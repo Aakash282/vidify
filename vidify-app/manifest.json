@@ -1,0 +1,34 @@
+{
+  "AppDescription": {
+    "en": "Vidify is an app that searches for a music video of the currently 
+    playing song"
+  },
+  "AppIcon": {
+    "36x18": "images/icons/icon-36x18.png"
+  },
+  "AppName": {
+    "en": "Vidify",
+  },
+  "BundleIdentifier": "vidify"
+  "BundleType": "Application",
+  "BundleVersion": "0.0.1",
+  "Dependencies": {
+    "api": "1.0.0",
+    "views": "1.10.0"
+  },
+  "RequiredPermissions": [
+    "http://*.echonest.com",
+    "http://www.youtube.com/apiplayer?enablejsapi=1&version=3",
+    "https://code.google.com/p/google-api-javascript-client/",
+    "http://*.spotify.com",
+    "http://spotify.com"
+  ],
+  "SupportedDeviceClasses": [
+    "Web",
+    "Desktop"
+  ],
+  "SupportedLanguages": [
+    "en"
+  ],
+  "VendorIdentifier": "Aakash282"
+}
