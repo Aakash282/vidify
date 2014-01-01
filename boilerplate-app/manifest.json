@@ -49,15 +49,7 @@
     "Desktop"
   ],
   "SupportedLanguages": [
-    "de",
-    "en",
-    "es",
-    "es-419",
-    "fr",
-    "it",
-    "nl",
-    "pl",
-    "zh-Hant"
+    "en"
   ],
   "VendorIdentifier": "com.myorganization"
 }

@@ -30,9 +30,9 @@
   // });
   // };
 
-  // After the API loads, call a function to enable the search box.
-  // 
-  // 
+//  After the API loads, call a function to enable the search box.
+  
+  
 // function handleAPILoaded() {
 //   $('#search-button').attr('disabled', false);
 // }
@@ -61,24 +61,21 @@ function showResponse(response) {
     document.getElementById('VideoURL').value = YT.items[0].id.videoId;
 }
 
+
 // Called automatically when JavaScript client library is loaded.
-(function onClientLoad() {
-    gapi.client.load('youtube', 'v3', onYoutubeApiLoad);
-    //search();    // changed.
+function onClientLoad() {
+    gapi.client.setApiKey('AIzaSyB0mteDV5vDKFR-iAv4Fx4OC2gp1Yhqe9U');
+    gapi.client.load('youtube', 'v3', function() { console.log('loaded.'); });
+    // search();    // changed.
 }
 
-// Called automatically when YouTube API interface is loaded (see line 9).
-function onYouTubeApiLoad() {
-    // This API key is intended for use only in this lesson.
-    // See http://goo.gl/PdPA1 to get a key for your own applications.
-    gapi.client.setApiKey('AIzaSyB0mteDV5vDKFR-iAv4Fx4OC2gp1Yhqe9U');
-}
+
 
 function search() {
+    gapi.client.setApiKey('AIzaSyB0mteDV5vDKFR-iAv4Fx4OC2gp1Yhqe9U');
+    gapi.client.load('youtube', 'v3', function() { console.log('loaded.'); });
     // Use the JavaScript client library to create a search.list() API call.
-    var qVar = document.getElementById("artiest").value
-             + " - "
-             + document.getElementById("nummer").value;
+    var qVar = "Kanye West Amazing"
     // changed. added: type
     var request = gapi.client.youtube.search.list({
         type: 'video',

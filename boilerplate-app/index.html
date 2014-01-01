@@ -3,27 +3,67 @@
   <head>
     <title>Search</title>
   </head>
-  <body>
-    <div id="buttons">
-      <label> <input id="query" value='cats' type="text"/><button id="search-button" disabled onclick="search()">Search</button></label>
-    </div>
-    <div id="search-container">
-    </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js?onload=onLoadCallback" type="text/javascript"></script>
-    <script src="scripts/auth.js"></script>
-    <script src="scripts/search.js"></script>
-    <script src="https://apis.google.com/js/client.js?onload=onLoadCallback"></script>
 
-    <center>
-    <h3 class="h3">KJKerstborrel - Muziekrequest</h3>
-        <div class="input">
-            <form name="muziek" action="succes/index" method="post">
-                <input type="text" class="input-xlarge" id="artiest"  name="artiest" placeholder="Gewenste artiest" /><br>
-                <input type="text" class="input-xlarge" id="nummer"  name="nummer" placeholder="Gewenst nummer" required/><br>
-                <button style="width: 200px;" class="btn btn-success" onClick="search()" type="button">Deze wil ik horen!</button><br>
-                <input type="text" class="input-xlarge" id="VideoURL"  name="VideoURL" placeholder="VideoURL"/><br>
-            </form>
-        </div>
-    </center>
+  <body>
+    <!--Add a button for the user to click to initiate auth sequence -->
+    <button id="authorize-button" style="visibility: hidden">Authorize</button>
+    <script type="text/javascript">
+
+      var clientId = '591751286145';
+
+      var apiKey = 'AIzaSyB0mteDV5vDKFR-iAv4Fx4OC2gp1Yhqe9U';
+
+      var scopes = 'https://www.googleapis.com/auth/plus.me';
+
+      function handleClientLoad() {
+        // Step 2: Reference the API key
+        gapi.client.setApiKey(apiKey);
+        window.setTimeout(checkAuth,1);
+      }
+
+      function checkAuth() {
+        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
+      }
+
+      function handleAuthResult(authResult) {
+        var authorizeButton = document.getElementById('authorize-button');
+        if (authResult && !authResult.error) {
+          authorizeButton.style.visibility = 'hidden';
+          makeApiCall();
+        } else {
+          authorizeButton.style.visibility = '';
+          authorizeButton.onclick = handleAuthClick;
+        }
+      }
+
+      function handleAuthClick(event) {
+        // Step 3: get authorization to use private data
+        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+        return false;
+      }
+
+      // Load the API and make an API call.  Display the results on the screen.
+      function makeApiCall() {
+        // Step 4: Load the Google+ API
+        gapi.client.load('youtube', 'v3', function() {
+            // Step 5: Assemble the API request
+            var qVar = "Kanye West Amazing"
+            // changed. added: type
+            var request = gapi.client.youtube.search.list({
+                type: 'video',
+                part: 'id',
+                q: qVar
+            });
+          });
+          // Step 6: Execute the API request
+          request.execute(function(resp) {
+            document.getElementById('vid').value = resp.items[0];//.id.videoId;
+          });
+          
+      }
+
+      console.log(document.getElementById('vid'));
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
   </body>
 </html>
