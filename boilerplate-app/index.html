@@ -13,24 +13,30 @@
 
       var apiKey = 'AIzaSyB0mteDV5vDKFR-iAv4Fx4OC2gp1Yhqe9U';
 
-      var scopes = 'https://www.googleapis.com/auth/plus.me';
+      var scopes = 'https://www.googleapis.com/auth/youtube';
 
       function handleClientLoad() {
+        console.log('yo');
         // Step 2: Reference the API key
         gapi.client.setApiKey(apiKey);
-        window.setTimeout(checkAuth,1);
+        gapi.auth.init(function() {
+            window.setTimeout(checkAuth, 1);
+        });
       }
 
       function checkAuth() {
+        console.log('yo');
         gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
       }
 
       function handleAuthResult(authResult) {
+        console.log('yo');
         var authorizeButton = document.getElementById('authorize-button');
         if (authResult && !authResult.error) {
           authorizeButton.style.visibility = 'hidden';
           makeApiCall();
         } else {
+          console.log('auth failed.');
           authorizeButton.style.visibility = '';
           authorizeButton.onclick = handleAuthClick;
         }
@@ -38,8 +44,10 @@
 
       function handleAuthClick(event) {
         // Step 3: get authorization to use private data
+        console.log('yo');
         gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
         return false;
+
       }
 
       // Load the API and make an API call.  Display the results on the screen.
@@ -57,7 +65,8 @@
           });
           // Step 6: Execute the API request
           request.execute(function(resp) {
-            document.getElementById('vid').value = resp.items[0];//.id.videoId;
+            document.getElementById('vid').value = resp.items[1];//.id.videoId;
+            console.log('yo');
           });
           
       }
