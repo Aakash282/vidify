@@ -40,7 +40,8 @@
     "*.youtube.com", 
     "*.google.com",
     "chrome_ex_oauth.html",
-    "chrome_ex_oauthsimple.html",
+    "http://ajax.googleapis.com",
+    "https://apis.google.com",
     "http://www.youtube.com/apiplayer?enablejsapi=1&version=3",
     "https://code.google.com/p/google-api-javascript-client/"
   ],
