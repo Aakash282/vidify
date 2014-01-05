@@ -1,15 +1,19 @@
 {
   "AppDescription": {
-    "en": "Vidify is an app that searches for a music video of the currently 
-    playing song"
+    "en": "Opens the music video of the currently playing song."
   },
   "AppIcon": {
-    "36x18": "images/icons/icon-36x18.png"
+    "18x18": "images/icons/icon-18x18.png",
+    "36x18": "images/icons/icon-36x18.png",
+    "32x32": "images/icons/icon-32x32.png",
+    "64x64": "images/icons/icon-64x64.png",
+    "128x128": "images/icons/icon-128x128.png",
+    "300x300": "images/icons/icon-300x300.png"
   },
   "AppName": {
-    "en": "Vidify",
+    "en": "Vidify"
   },
-  "BundleIdentifier": "vidify"
+  "BundleIdentifier": "vidify",
   "BundleType": "Application",
   "BundleVersion": "0.0.1",
   "Dependencies": {
@@ -17,11 +21,15 @@
     "views": "1.10.0"
   },
   "RequiredPermissions": [
-    "http://*.echonest.com",
+    "*.youtube.com", 
+    "*.google.com",
+    "chrome_ex_oauth.html",
+    "http://ajax.googleapis.com",
+    "https://apis.google.com",
     "http://www.youtube.com/apiplayer?enablejsapi=1&version=3",
-    "https://code.google.com/p/google-api-javascript-client/",
     "http://*.spotify.com",
-    "http://spotify.com"
+    "http://spotify.com",
+    "https://code.google.com/p/google-api-javascript-client/"
   ],
   "SupportedDeviceClasses": [
     "Web",
@@ -30,5 +38,5 @@
   "SupportedLanguages": [
     "en"
   ],
-  "VendorIdentifier": "Aakash282"
+  "VendorIdentifier": "com.myorganization"
 }

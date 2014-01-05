@@ -1,39 +1,53 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>vidify</title>
-    <!-- Include the stylesheets you need for the Views components -->
-    <!-- See https://developer.spotify.com/docs/apps/views/1.0/ -->
-    <link rel="stylesheet" href="$views/css/image.css">
-    <link rel="stylesheet" href="$views/css/list.css">
-    <link rel="stylesheet" href="$views/css/buttons.css">
-    <!-- <link rel="stylesheet" href="$views/css/throbber.css"> -->
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <h1></h1>
-
-    <script src="scripts/main.js"></script>
-
-    <script type="text/javascript" src="swfobject.js"></script>    
-    <div id="ytapiplayer">
-    You need Flash player 8+ and JavaScript enabled to view this video.
+<div class="section">
+    <h1>Get the currently playing track</h1>
+    <p class="description">Retrieves what track is being played.</p>
+    <div class="reference">
+        Reference: <a href="https://developer.spotify.com/docs/apps/api/1.0/api-models-player.html">Player Model</a>
     </div>
 
-    <script type="text/javascript">
-    var URL = "http://www.youtube.com/v/";
-        URL += document.getElementById('video_id');
-        URL += "?enablejsapi=1&playerapiid=ytplayer&version=3"
+    <h3>The Javascript</h3>
+    <div id="js"></div>
 
-    var params = { allowScriptAccess: "always" };
-    var atts = { id: "myytplayer" };
-    swfobject.embedSWF(URL,"ytapiplayer", "425", "356", "8", null, null, params, atts);
+    <h3>The HTML</h3>
+    <div id="html"></div>
 
+    <h3>Live Example</h3>
+    <div class="html-snippet" data-container="html">
+        <div id="np"></div>
+    </div>
+    <script type="script/snippet" data-container="js">
+        require(['$api/models'], function(models) {
+
+            var nowPlaying = document.getElementById('np');
+
+            function updateStatus(track) {
+                if (track === null) {
+                    nowPlaying.innerHTML = 'No track currently playing';
+                } else {
+                    nowPlaying.innerHTML = 'Now playing: ' + track.name;
+                }
+            }
+
+            // update on load
+            models.player.load('track').done(function(p) {
+                updateStatus(p.track);
+            });
+
+            // update on change
+            models.player.addEventListener('change', function(p) {
+                updateStatus(p.data.track);
+            });
+        });
     </script>
 
+    <script type="text/javascript">
+        console.log(document.getElementById('cur'));
+        var serverURL = "http://localhost/index.html?";
+        serverURL += escape(document.getElementById('cur'));
 
-  </body>
-</html>
+    window.open(serverURL);
+    </script>
+</div>
+
+
 

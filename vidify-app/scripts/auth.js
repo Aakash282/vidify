@@ -2,7 +2,7 @@
 // at https://cloud.google.com/console.
 // If you run this code from a server other than http://localhost,
 // you need to register your own client ID.
-var OAUTH2_CLIENT_ID = '591751286145.apps.googleusercontent.com';
+var OAUTH2_CLIENT_ID = '591751286145';
 var OAUTH2_SCOPES = [
   'https://www.googleapis.com/auth/youtube'
 ];
@@ -11,7 +11,7 @@ var OAUTH2_SCOPES = [
 googleApiClientReady = function() {
   gapi.auth.init(function() {
     window.setTimeout(checkAuth, 1);
-  });
+  }(jQuery));
 }
 
 // Attempt the immediate OAuth 2.0 client flow as soon as the page loads.
@@ -42,7 +42,7 @@ function handleAuthResult(authResult) {
       gapi.auth.authorize({
         client_id: OAUTH2_CLIENT_ID,
         scope: OAUTH2_SCOPES,
-        immediate: false
+        immediate: true
         }, handleAuthResult);
     });
   }

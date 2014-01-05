@@ -1,12 +1,14 @@
 require([
-  '$api/models',
-  'scripts/search',
-  'scripts/auth',
-  'scripts/query',
-  'scripts/swfobject'
-], function(models, search, auth, query, sqfobject) {
-  'use strict';
+   '$api/models',
+   '$api/search#Search',
+   '$views/image#Image'
+], function(models,s, Image) {
+     'use strict';
 
-  search.search();
-
+     models.player.load('track').done(function(prop) {
+           var curTrack = document.createElement('cur');
+           curTrack.value = prop.track.name;
+           curTrack.value += ' ' + prop.track.album.name;
+           console.log(document.getElementById('cur'));
+      });
 });
