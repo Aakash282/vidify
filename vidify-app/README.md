@@ -1,56 +1,25 @@
-# Spotify Apps API Tutorial
+# Vidify
 
-This is a Spotify App that shows useful code snippets that can help you build
-[Spotify Apps](https://developer.spotify.com/technologies/apps/). It uses the most recent version of the Spotify Apps API.
+This is a Spotify App the opens the youtube music video of the currently playing song. It uses the most recent version of the Spotify Apps API.
 
 ## Installation
 
- 1. Sign up for a [developer account on Spotify](https://developer.spotify.com/technologies/apps/#developer) by logging in and agreeing to the [terms of use](https://developer.spotify.com/technologies/apps/terms-of-use/).
- 2. Create the Spotify folder if it doesn't exist already: `~/Spotify` (Mac OS X and Linux) or `My Documents\Spotify` (Windows).
- 3. Open the Spotify folder.
- 4. Run `git clone git://github.com/spotify/apps-tutorial.git api-tutorial`.
+ 1. Move the vidify-app folder to the Spotify folder created in step 2. 
+ 1 Create the Spotify folder if it doesn't exist already: `~/Spotify` (Mac OS X and Linux) or `My Documents\Spotify` (Windows).
+ 2. Open the Spotify folder.
+ 4. Move the vidify-app folder to the Spotify folder created in step 1.
+  `git clone git://github.com/Aakash282/vidify.git vidify`.
  5. Download the [latest version of Spotify](http://spotify.com/download).
- 6. Open Spotify and type "spotify:app:api-tutorial" in the search bar (restart Spotify completely in case it doesn't find the App at first).
+ 6. Open Spotify and type "spotify:app:vidify" in the search bar (restart Spotify completely in case it doesn't find the App at first).
+ 7. Install XAMPP and move the index.html file that is currently in vidify/app/youtube portal to XAMPP/htdocs (you might have to replace the file there). 
+ 8. Start your local server and enjoy. 
 
-## Topics covered
-
-#### Getting started
-
- * Creating your manifest file
- * Handling arguments, creating pages and navigational tabs
- * Dragging and dropping content into an app
-
-#### UI
-
- * Show "Share" popup
-
-#### Playing music
-
- * Play a single track
- * Play a list of tracks
- * Get the currently playing track
- * Create a play/pause button with an HTML element
- * Skip to the next or previous track
-
-#### Searching
-
- * Get metadata from an artist, album, track, or playlist
- * Returning metadata with a given search query
-
-#### Interacting with user data
-
- * Get a user's top tracks
- * Star and unstar a track
-
-#### Facebook
-
- * Authenticate a user with Facebook
+## Usage
+Currently the video will open a window in your default web browser. Unfortunately, Spotify does not yet support flash OR html5 video so it is not possible to embed a youtube player (using the youtube-player api). I hope that Spotify add this functionality so I can make the appropriate changes. 
 
 ## More information
 
- * [API Reference](https://developer.spotify.com/technologies/apps/docs/)
- * [Integration Guidelines](http://developer.spotify.com/download/spotify-apps-api/guidelines/)
- * [Spotify-tagged questions on StackOverflow](http://stackoverflow.com/questions/tagged/spotify)
- * [@SpotifyPlatform](https://twitter.com/#!/SpotifyPlatform) on Twitter
+ * [Spotify API Reference](https://developer.spotify.com/technologies/apps/docs/)
+ * [Youtube Data API v3](https://developers.google.com/youtube/v3/) 
 
-Your feedback is welcome! Feel free to create issues and send pull requests.
+Your feedback is welcome! Please feel free to create issues and send pull requests.
