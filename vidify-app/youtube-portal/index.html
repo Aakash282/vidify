@@ -5,10 +5,6 @@
   </head>
 
   <body>
-    <h1>Vidify = Youtube + Spotify</h1>
-    <p class="description">Opens the music video of the currently playing song. Created by Aakash Indurkhya</p>
-
-    <h3>Your video is opening now... (redirecting)</h3>
     <!--Add a button for the user to click to initiate auth sequence -->
     <button id="authorize-button" style="visibility: hidden">Authorize</button>
     <script type="text/javascript">
@@ -72,7 +68,7 @@
                 console.log('youtube API loaded...');
                 // Step 5: Assemble the API request
                 
-                var qVar = decodeURI(myURL.replace("https://googledrive.com/host/0B1SFF5AjEursa0FZQ0ZlMWlLa0U/index.html&", ""));
+                var qVar = decodeURI(myURL.replace("https://googledrive.com/host/0B1SFF5AjEursa0FZQ0ZlMWlLa0U/index.html?", ""));
                 console.log(qVar);
                 var request = gapi.client.youtube.search.list({
                     type: 'video',
