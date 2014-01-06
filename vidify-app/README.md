@@ -11,7 +11,7 @@ This is a Spotify App the opens the youtube music video of the currently playing
   `git clone git://github.com/Aakash282/vidify.git vidify`.
  5. Download the [latest version of Spotify](http://spotify.com/download).
  6. Open Spotify and type "spotify:app:vidify" in the search bar (restart Spotify completely in case it doesn't find the App at first).
- 7. Install XAMPP and move the index.html file that is currently in vidify/app/youtube portal to XAMPP/htdocs (you might have to replace the file there). 
+ 7. Install XAMPP and move the index.html file that is currently in `vidify/app/youtube-portal` to `XAMPP/htdocs` (you might have to replace the file there). 
  8. Start your local server and enjoy. 
 
 ## Usage
