@@ -68,7 +68,7 @@
                 console.log('youtube API loaded...');
                 // Step 5: Assemble the API request
                 
-                var qVar = decodeURI(myURL.replace("http://localhost/index.html?", ""));
+                var qVar = decodeURI(myURL.replace("https://s3.amazonaws.com/vidify/index.html?", ""));
                 console.log(qVar);
                 var request = gapi.client.youtube.search.list({
                     type: 'video',
