@@ -1,0 +1,59 @@
+<div class="section">
+    <h1>Vidify = Youtube + Spotify</h1>
+    <p class="description">Opens the music video of the currently playing song. </p>
+    <div class="reference">
+        Reference: <a href="https://developer.spotify.com/docs/apps/api/1.0/api-models-player.html">Player Model</a>
+    </div>
+
+    <h3>Your video is opening now...</h3>
+    <div class="html-snippet">
+        <div id="np"></div>
+    </div>
+
+    <script type="script/snippet">
+    // import the spotify API
+        require(['$api/models'], function(models) {
+            // get access tp the currently playing song. 
+            var nowPlaying = document.getElementById('np');
+            console.log(nowPlaying);
+            function updateStatus(track) {
+                if (track === null) {
+                    nowPlaying.innerHTML = 'No track currently playing';
+                } else {
+                    nowPlaying.innerHTML = 'Searched: ' + track.name + " " + track.artists[0].name;
+                }
+            }
+
+            // update on load
+            models.player.load('track').done(function(p) {
+
+                updateStatus(p.track);
+                models.player.pause();
+                console.log(p.track);
+                var query = p.track.name + " " + p.track.artists[0].name;
+                console.log(query);
+                var serverURL = "http://localhost/index.html?";
+                serverURL += escape(query);
+                //models.player.pause();
+                window.open(serverURL);
+            });
+
+            // update on change
+            models.player.addEventListener('change', function(p) {
+                updateStatus(p.data.track);
+                // models.player.pause();
+                // console.log(p.data.track);
+                // var query = p.data.track.name + " " + p.data.track.artists[0].name;
+                // console.log(query);
+                // var serverURL = "http://localhost/index.html?";
+                // serverURL += escape(query);
+                // //models.player.pause();
+                // window.open(serverURL);
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        
+    </script>
+</div>
