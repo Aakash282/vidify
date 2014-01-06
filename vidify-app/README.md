@@ -1,38 +1,56 @@
-boilerplate-app
-===============
+# Spotify Apps API Tutorial
 
-This is a boilerplate app that contains the minimum required code to create
-a Spotify app. It also contains a few simple examples of how to use some of
-our APIs.
+This is a Spotify App that shows useful code snippets that can help you build
+[Spotify Apps](https://developer.spotify.com/technologies/apps/). It uses the most recent version of the Spotify Apps API.
 
-To test the application your Spotify account needs to have the developer flag
-set. You can find out how to activate the developer flag [here](https://developer.spotify.com/technologies/apps/#developer-account).
+## Installation
 
-Clone this repository in your Spotify workspace directory. If you haven't got a Spotify directory, read about where to create it [here](http://developer.spotify.com/technologies/apps/guidelines/developer/#creatinganapp). Cloning will create a subfolder called boilerplate-app. 
+ 1. Sign up for a [developer account on Spotify](https://developer.spotify.com/technologies/apps/#developer) by logging in and agreeing to the [terms of use](https://developer.spotify.com/technologies/apps/terms-of-use/).
+ 2. Create the Spotify folder if it doesn't exist already: `~/Spotify` (Mac OS X and Linux) or `My Documents\Spotify` (Windows).
+ 3. Open the Spotify folder.
+ 4. Run `git clone git://github.com/spotify/apps-tutorial.git api-tutorial`.
+ 5. Download the [latest version of Spotify](http://spotify.com/download).
+ 6. Open Spotify and type "spotify:app:api-tutorial" in the search bar (restart Spotify completely in case it doesn't find the App at first).
 
-You can access the application (restart the Spotify desktop client if you have not done so) by typing in spotify:app:boilerplate-app in the search field.
-Read more about this in the [Spotify Developer Guidelines](http://developer.spotify.com/technologies/apps/guidelines/developer/).
+## Topics covered
 
-The **[manifest.json](https://github.com/spotify/boilerplate-app/blob/master/manifest.json)** file describes the application. For this app we have chosen
-to support all languages available.
+#### Getting started
 
-**[index.html](https://github.com/spotify/boilerplate-app/blob/master/index.html)** loads the **[scripts/main.js]((https://github.com/spotify/boilerplate-app/blob/master/scripts/main.js)** file, our entry point to develop applications. In turn, main.js loads  four script files, each showcasing a part of the Spotify Apps API.
+ * Creating your manifest file
+ * Handling arguments, creating pages and navigational tabs
+ * Dragging and dropping content into an app
 
-* **[scripts/button-example.js](https://github.com/spotify/boilerplate-app/blob/master/scripts/button-example.js)** shows how to create some of the buttons our framework
-supports. Find out more about buttons in the [Views Framework documentation](https://developer.spotify.com/technologies/apps/docs/preview/views/buttons.html).
+#### UI
 
-* **[scripts/cover-example.js](https://github.com/spotify/boilerplate-app/blob/master/scripts/cover-example.js)** shows how to create a playable cover image for an album.
-Find out more about images in the [Views Framework documentation](https://developer.spotify.com/technologies/apps/docs/preview/views/image-image.html).
+ * Show "Share" popup
 
-* **[scripts/language-example.js](https://github.com/spotify/boilerplate-app/blob/master/scripts/language-example.js)** shows how to use our built-in i18n support.
-Find out more about localization in our [Spotify Developer Guidelines](http://developer.spotify.com/technologies/apps/guidelines/developer/#localization) or in our
-[API Framework documentation](http://developer.spotify.com/technologies/apps/docs/preview/api/api-core-spotifyapi-langmodule.html).
+#### Playing music
 
-* **[scripts/playlist-example.js](https://github.com/spotify/boilerplate-app/blob/master/scripts/playlist-example.js)** shows how to create a playlist for an album.
-Find out more about playlists in the [Views Framework documentation](https://developer.spotify.com/technologies/apps/docs/preview/views/list.html).
+ * Play a single track
+ * Play a list of tracks
+ * Get the currently playing track
+ * Create a play/pause button with an HTML element
+ * Skip to the next or previous track
 
-Helpful links:
+#### Searching
 
--  [Spotify Developer site](https://developer.spotify.com/)
--  [Spotify Developer Guidelines](http://developer.spotify.com/technologies/apps/guidelines/developer/)
--  [Spotify Apps API](https://developer.spotify.com/technologies/apps/)
+ * Get metadata from an artist, album, track, or playlist
+ * Returning metadata with a given search query
+
+#### Interacting with user data
+
+ * Get a user's top tracks
+ * Star and unstar a track
+
+#### Facebook
+
+ * Authenticate a user with Facebook
+
+## More information
+
+ * [API Reference](https://developer.spotify.com/technologies/apps/docs/)
+ * [Integration Guidelines](http://developer.spotify.com/download/spotify-apps-api/guidelines/)
+ * [Spotify-tagged questions on StackOverflow](http://stackoverflow.com/questions/tagged/spotify)
+ * [@SpotifyPlatform](https://twitter.com/#!/SpotifyPlatform) on Twitter
+
+Your feedback is welcome! Feel free to create issues and send pull requests.

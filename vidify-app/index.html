@@ -1,53 +1,64 @@
-<div class="section">
-    <h1>Get the currently playing track</h1>
-    <p class="description">Retrieves what track is being played.</p>
-    <div class="reference">
-        Reference: <a href="https://developer.spotify.com/docs/apps/api/1.0/api-models-player.html">Player Model</a>
-    </div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="$views/css/image.css">
+        <link rel="stylesheet" href="$views/css/list.css">
+        <link rel="stylesheet" href="$views/css/buttons.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/github.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="index" class="section">
+                <h1>Vidify = Youtube + Spotify</h1>
+                <p class="description">Opens the music video of the currently playing song. </p>
 
-    <h3>The Javascript</h3>
-    <div id="js"></div>
+                <h3>Your video is opening now...</h3>
+                <div class="html-snippet">
+                    <div id="np"></div>
+                </div>
 
-    <h3>The HTML</h3>
-    <div id="html"></div>
+                <script type="script/snippet">
+                // import the spotify API
+                    require(['$api/models'], function(models) {
+                        // get access tp the currently playing song. 
+                        var nowPlaying = document.getElementById('np');
+                        console.log(nowPlaying);
+                        function updateStatus(track) {
+                            if (track === null) {
+                                nowPlaying.innerHTML = 'No track currently playing';
+                            } else {
+                                nowPlaying.innerHTML = 'Searched: ' + track.name +
+                                                    " By: " + track.artists[0].name;
+                            }
+                        }
 
-    <h3>Live Example</h3>
-    <div class="html-snippet" data-container="html">
-        <div id="np"></div>
-    </div>
-    <script type="script/snippet" data-container="js">
-        require(['$api/models'], function(models) {
+                        // update on load
+                        models.player.load('track').done(function(p) {
+                            updateStatus(p.track);
 
-            var nowPlaying = document.getElementById('np');
+                            // pause the song and write the query
+                            models.player.pause();
+                            console.log(p.track);
+                            var query = p.track.name + " " + p.track.artists[0].name;
+                            console.log(query);
 
-            function updateStatus(track) {
-                if (track === null) {
-                    nowPlaying.innerHTML = 'No track currently playing';
-                } else {
-                    nowPlaying.innerHTML = 'Now playing: ' + track.name;
-                }
-            }
+                            // Now we load the query to send to the server
+                            var serverURL = "http://localhost/index.html?";
+                            serverURL += escape(query);
+                            window.open(serverURL);
+                        });
 
-            // update on load
-            models.player.load('track').done(function(p) {
-                updateStatus(p.track);
-            });
-
-            // update on change
-            models.player.addEventListener('change', function(p) {
-                updateStatus(p.data.track);
-            });
-        });
-    </script>
-
-    <script type="text/javascript">
-        console.log(document.getElementById('cur'));
-        var serverURL = "http://localhost/index.html?";
-        serverURL += escape(document.getElementById('cur'));
-
-    window.open(serverURL);
-    </script>
-</div>
-
-
-
+                        // update on change
+                        models.player.addEventListener('change', function(p) {
+                            updateStatus(p.data.track);
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+        <script src="/js/rainbow-custom.min.js"></script>
+        <script src="/js/tutorial.js"></script>
+        
+    </body>
+</html>
