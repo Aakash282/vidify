@@ -17,6 +17,9 @@ This is a Spotify App the opens the youtube music video of the currently playing
 ## Usage
 Currently the video will open a window in your default web browser. Unfortunately, Spotify does not yet support flash OR html5 video so it is not possible to embed a youtube player (using the youtube-player api). I hope that Spotify add this functionality so I can make the appropriate changes. 
 
+I will likely change the code later today such that you don't need to run a local server. 
+Also I'm going to make it so that the link only open in on window (rather than opening two windows).
+
 ## More information
 
  * [Spotify API Reference](https://developer.spotify.com/technologies/apps/docs/)
