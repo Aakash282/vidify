@@ -68,7 +68,7 @@
                 console.log('youtube API loaded...');
                 // Step 5: Assemble the API request
                 
-                var qVar = decodeURI(myURL.replace("https://googledrive.com/host/0B1SFF5AjEursa0FZQ0ZlMWlLa0U/index.html?", ""));
+                var qVar = decodeURI(myURL.replace("https://dd5a44e391efa401ca5d02c3bad13aee2d53c6b8.googledrive.com/host/0B1SFF5AjEursa0FZQ0ZlMWlLa0U/index.html?", ""));
                 console.log(qVar);
                 var request = gapi.client.youtube.search.list({
                     type: 'video',
@@ -82,7 +82,7 @@
                     var vid = document.createElement('vid');
                     vid.value = resp.items[0].id.videoId;
                     console.log(vid.value);
-                    var youtube_url = "http://www.youtube.com/watch?v=";
+                    var youtube_url = "http://www.youtube.com/tv#/watch?v=";
                     youtube_url += vid.value;
                     window.open (youtube_url,'_self',false);
                 });
